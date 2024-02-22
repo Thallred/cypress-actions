@@ -4,8 +4,7 @@ on:
     inputs: 
       cli:
         description: Run by cypress command line
-        default: yarn cypress run
-        spec: cypress/e2e/**
+        default: cypress/e2e/*
 
 
 jobs: 
