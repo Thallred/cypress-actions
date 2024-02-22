@@ -16,7 +16,7 @@ jobs:
           uses: actions/checkout@v3.3.0
           
         - name: Cypress run
-          uses: cypress-io/github-action@59810ebfa5a5ac6fcfdcfdf036d1cd4d083a88f2
+          uses: cypress-io/github-action@v6.5.0
           with: 
             install-command: yarn install
             browser: electron
