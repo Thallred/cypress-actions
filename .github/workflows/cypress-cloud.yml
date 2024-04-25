@@ -29,50 +29,7 @@ jobs:
           env:
             CYPRESS_RECORD_KEY: 3e0b34d2-abf5-4e28-96fa-e4d01eafee41
             GITHUB_TOKEN: ${{  secrets.GITHUB_TOKEN  }}
-    cypress-e2e-chrome:
-      needs: Cypress-e2e-electron
-      runs-on: ubuntu-latest
-      container:
-       image: cypress/browsers:node18.12.0-chrome103-ff107
-       options: --user 1001
-      steps:
-        - name: Get code
-          uses: actions/checkout@v3.3.0
-          
-        - name: Cypress run
-          uses: cypress-io/github-action@v6.5.0
-          with: 
-            install-command: yarn install
-            browser: chrome
-            record: true
-            group: UI Chrome
-            spec: $({{ github.event.inputs.spec }})
-
-          env:
-            CYPRESS_RECORD_KEY: 3e0b34d2-abf5-4e28-96fa-e4d01eafee41
-            GITHUB_TOKEN: ${{  secrets.GITHUB_TOKEN  }}
-    Cypress-e2e-firefox:
-      needs: cypress-e2e-chrome
-      runs-on: ubuntu-latest
-      container:
-       image: cypress/browsers:node18.12.0-chrome103-ff107
-       options: --user 1001
-      steps:
-        - name: Get code
-          uses: actions/checkout@v3.3.0
-          
-        - name: Cypress run
-          uses: cypress-io/github-action@v6.5.0
-          with: 
-            install-command: yarn install
-            browser: firefox
-            record: true
-            group: UI Firefox
-            spec: $({{ github.event.inputs.spec }})
-
-          env:
-            CYPRESS_RECORD_KEY: 3e0b34d2-abf5-4e28-96fa-e4d01eafee41
-            GITHUB_TOKEN: ${{  secrets.GITHUB_TOKEN  }}
+    
     
    
 
